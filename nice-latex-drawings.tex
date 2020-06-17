@@ -1,0 +1,145 @@
+\documentclass[10pt,fleqn]{article}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[ngerman]{babel}
+\usepackage[left=3cm, right=3cm]{geometry}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{snakes}
+
+\begin{document}
+    \begin{minipage}{\linewidth}
+        \centering
+        \begin{tikzpicture}
+            % Axis
+            \draw (-0.7, 0.3) node{Zeit} (-0.7, 0.3);
+            \draw (0,  0.3)  node{0}  (0,  0.3);
+            \draw (2,  0.3)  node{10} (2,  0.3);
+            \draw (4,  0.3)  node{20} (4,  0.3);
+            \draw (6,  0.3)  node{30} (6,  0.3);
+            \draw (8,  0.3)  node{40} (8,  0.3);
+            \draw (10, 0.3) node{50} (10, 0.3);
+            \draw (12, 0.3) node{60} (12, 0.3);
+            \draw (14, 0.3) node{70} (14, 0.3);
+            \draw (0, 0) -- (14.8, 0);
+            \draw[snake=ticks, segment length=2cm] (0, 0) -- (14.8, 0);
+            % K1
+            \draw (-0.5, -0.55) node[black]{K1} (0.5, -0.55);
+            \draw[thick, fill=gray!25] (0,   -0.3) rectangle node{1}  (1.2,  -0.8);
+            \draw[thick, fill=gray!25] (1.2, -0.3) rectangle node{4}  (3.2,  -0.8);
+            \draw[thick, fill=gray!25] (3.2, -0.3) rectangle node{6}  (5.8,  -0.8);
+            \draw[thick, fill=gray!25] (5.8, -0.3) rectangle node{9}  (9.8,  -0.8);
+            \draw[thick, fill=gray!25] (9.8, -0.3) rectangle node{12} (10.6, -0.8);
+            \draw[thick, fill=gray!25] (10.6,-0.3) rectangle node{14} (14.8, -0.8);
+            % K2
+            \draw (-0.5, -1.35) node[black]{K2} (0.5, -1.35);
+            \draw[thick, fill=gray!25] (0,   -1.1) rectangle node{2}  (3.0,  -1.6);
+            \draw[thick, fill=gray!25] (3.0, -1.1) rectangle node{5}  (3.6,  -1.6);
+            \draw[thick, fill=gray!25] (3.6, -1.1) rectangle node{7}  (6.6,  -1.6);
+            \draw[thick, fill=gray!25] (6.6, -1.1) rectangle node{11} (10.4, -1.6);
+            \draw[thick, fill=gray!25] (10.4,-1.1) rectangle node{13} (11.6, -1.6);
+            % K3
+            \draw (-0.5, -2.15) node[black]{K3} (0.5, -2.15);
+            \draw[thick, fill=gray!25] (0,  -1.9) rectangle node{3}  (4.6,  -2.4);
+            \draw[thick, fill=gray!25] (4.6,-1.9) rectangle node{8}  (6.2,  -2.4);
+            \draw[thick, fill=gray!25] (6.2,-1.9) rectangle node{10} (14.2, -2.4);
+        \end{tikzpicture}
+    \end{minipage}
+
+    \vspace{0.5cm}
+
+    \begin{minipage}{\linewidth}
+        \centering
+        \begin{tikzpicture}[
+            semithick
+        ]
+            \draw (0, 0) rectangle (1, -0.5);
+            \node at (0.5, -0.25) {\(x_0\)};
+            \draw (0, -1) rectangle (2.5, -1.5);
+            \node at (1.25, -1.25) {\(y_0\)};
+            \draw (3, 0) rectangle (6, -0.5);
+            \node at (4.5, -0.25) {\(x_1\)};
+            \draw (3, -1) rectangle (3.5, -1.5);
+            \node at (3.25, -1.25) {\(y_1\)};
+        \end{tikzpicture}
+    \end{minipage}
+
+    \vspace{0.5cm}
+
+    \begin{minipage}{\linewidth}
+        \centering
+        \begin{tikzpicture}[
+            semithick
+        ]
+            \def\xnul#1{
+                \draw (#1 + 0, 0) rectangle (#1 + 1, -0.5);
+                \node at (#1 + 0.5, -0.25) {\(x_0\)};
+            }
+            \def\xone#1{
+                \draw (#1 + 0, 0) rectangle (#1 + 3, -0.5);
+                \node at (#1 + 1.5, -0.25) {\(x_1\)};
+            }
+            \def\ynul#1{
+                \draw (#1 + 0, 0) rectangle (#1 + 1, -0.5);
+                \node at (#1 + 0.5, -0.25) {\(y_0\)};
+            }
+            \def\ynul#1{
+                \draw (#1 + 0, -1) rectangle (#1 + 2.5, -1.5);
+                \node at (#1 + 1.25, -1.25) {\(y_0\)};
+            }
+            \def\yone#1{
+                \draw (#1 + 0, -1) rectangle (#1 + 0.5, -1.5);
+                \node at (#1 + 0.25, -1.25) {\(y_1\)};
+            }
+            \xnul{0.0}
+            \xnul{1.0}
+            \xnul{2.0}
+            \xnul{3.0}
+            \xnul{4.0}
+            \xone{5.0}
+            \xone{8.0}
+            \xone{11.0}
+            \ynul{0.0}
+            \ynul{2.5}
+            \ynul{5.0}
+            \ynul{7.5}
+            \ynul{10.0}
+            \yone{12.5}
+            \yone{13}
+            \yone{13.5}
+        \end{tikzpicture}
+    \end{minipage}
+
+    \vspace{0.5cm}
+    
+    \newcommand{\qj}{q_{ja}}
+    \newcommand{\qn}{q_{nein}}
+    \begin{minipage}{\linewidth}
+        \centering
+        \begin{tikzpicture}[
+            semithick
+        ]
+            \node at (0.75, -0.75) {\(M'\)};
+            \draw[->] (1.25, -1.75) -- (1.25, -2.25);
+            \draw (0, 0) rectangle (10, -5);
+            \draw (1, -2.25) rectangle (1.5, -2.75);
+            \node at (1.25, -2.5) {\(\sigma_1\)};
+            \draw (1.5, -2.25) rectangle (2, -2.75);
+            \node at (1.75, -2.5) {\(\sigma_2\)};
+            \draw (2, -2.25) rectangle (2.5, -2.75);
+            \node at (2.25, -2.5) {\(...\)};
+            \draw (2.5, -2.25) rectangle (3, -2.75);
+            \node at (2.75, -2.5) {\(\sigma_n\)};
+            \draw[->] (3, -2.5) -- (4.5, -2.5);
+            \draw (4.5, -1) rectangle (9, -4);
+            \node at (5.25, -1.75) {\(M\)};
+            \draw[->] (9, -2.5) -- (12, -2.5);
+            \node at (12.5, -2.5) {\(\qj\)};
+            \path (6, -1) edge[->, out=90, in=90, above] node {Hält nicht} (7.5, -1);
+        \end{tikzpicture}
+    \end{minipage}
+\end{document}
