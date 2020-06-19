@@ -206,4 +206,73 @@
             0 & \cdots & \cdots & \cdots & \cdots & 0 & 0 & \cdots & 0
         \end{array}\right)
     \]
+
+    \vspace{0.5cm}
+    
+    \begin{minipage}{\linewidth}
+        \centering
+        \begin{tikzpicture}[
+            scale=0.8,
+            semithick
+        ]
+            \def\nul#1{
+                \draw[dotted] (#1 + 0, -0.5) -- (#1 + 0, 1.5);
+                \draw (#1 + 0, 0)      -- (#1 + 0.25, 0);
+                \draw (#1 + 0.25, 0)   -- (#1 + 0.25, 0.5);
+                \draw (#1 + 0.25, 0.5) -- (#1 + 0.5, 0.5);
+                \draw (#1 + 0.5, 0.5)  -- (#1 + 0.5, 0);
+                \node at (#1 + 0.25, 1) {\texttt{0}};
+            }
+            \def\nulconn#1{
+                \draw[dotted] (#1 + 0, -0.5) -- (#1 + 0, 1.5);
+                \draw (#1 + 0, 0)      -- (#1 + 0.25, 0);
+                \draw (#1 + 0.25, 0)   -- (#1 + 0.25, 0.5);
+                \draw (#1 + 0.25, 0.5) -- (#1 + 0.5, 0.5);
+                \node at (#1 + 0.25, 1) {\texttt{0}};
+            }
+            \def\one#1{
+                \draw[dotted] (#1 + 0, -0.5) -- (#1 + 0, 1.5);
+                \draw (#1 + 0, 0)      -- (#1 + 0, 0.5);
+                \draw (#1 + 0, 0.5)    -- (#1 + 0.25, 0.5);
+                \draw (#1 + 0.25, 0.5) -- (#1 + 0.25, 0);
+                \draw (#1 + 0.25, 0)   -- (#1 + 0.5, 0);
+                \node at (#1 + 0.25, 1) {\texttt{1}};
+            }
+            \def\oneconn#1{
+                \draw[dotted] (#1 + 0, -0.5) -- (#1 + 0, 1.5);
+                \draw (#1 + 0, 0.5)    -- (#1 + 0.25, 0.5);
+                \draw (#1 + 0.25, 0.5) -- (#1 + 0.25, 0);
+                \draw (#1 + 0.25, 0)   -- (#1 + 0.5, 0);
+                \node at (#1 + 0.25, 1) {\texttt{1}};
+            }
+            \one{0.5}
+            \one{1.0}
+            \one{1.5}
+            \one{2.0}
+            \one{2.5}
+            \nulconn{3.0}
+            \oneconn{3.5}
+            \nul{4.0}
+            \nul{4.5}
+            \nulconn{5.0}
+            \oneconn{5.5}
+            \one{6.0}
+            \one{6.5}
+            \one{7.0}
+            \one{7.5}
+            \nulconn{8.0}
+            \oneconn{8.5}
+            \nulconn{9.0}
+            \oneconn{9.5}
+            \one{10.0}
+            \nul{10.5}
+            \nul{11.0}
+            \nul{11.5}
+            \nulconn{12.0}
+            \oneconn{12.5}
+            \nulconn{13.0}
+            \oneconn{13.5}
+            \draw[dotted] (14, -0.5) -- (14, 1.5);
+        \end{tikzpicture}
+    \end{minipage}
 \end{document}
