@@ -11,6 +11,8 @@
 \usepackage{tikz}
 \usetikzlibrary{snakes}
 
+\def \distance {1cm}
+
 \begin{document}
     \begin{minipage}{\linewidth}
         \centering
@@ -50,7 +52,7 @@
         \end{tikzpicture}
     \end{minipage}
 
-    \vspace{0.5cm}
+    \vspace{\distance}
 
     \begin{minipage}{\linewidth}
         \centering
@@ -68,7 +70,7 @@
         \end{tikzpicture}
     \end{minipage}
 
-    \vspace{0.5cm}
+    \vspace{\distance}
 
     \begin{minipage}{\linewidth}
         \centering
@@ -114,7 +116,7 @@
         \end{tikzpicture}
     \end{minipage}
 
-    \vspace{0.5cm}
+    \vspace{\distance}
     
     \newcommand{\qj}{q_{ja}}
     \newcommand{\qn}{q_{nein}}
@@ -143,7 +145,7 @@
         \end{tikzpicture}
     \end{minipage}
 
-    \vspace{0.5cm}
+    \vspace{\distance}
     
     \begin{minipage}{\linewidth}
         \centering
@@ -169,45 +171,55 @@
             \node at (4,-1.5) {\(\triangle(P, Q, R)\)};
         \end{tikzpicture}
     \end{minipage}
-    \[
-        C = \left(\begin{array}{c|c}
-            \begin{array}{ccc|ccc}
-                a_{11} & \cdots & ^* & ^* & \cdots & ^*\\
-                \vdots & \ddots & \vdots & \vdots & & \vdots\\
-                0 & \cdots & a_{rr} & ^* & \cdots & ^*\\
+    
+    \begin{minipage}{\linewidth}
+        \centering
+        \(
+            C = \left(\begin{array}{c|c}
+                \begin{array}{ccc|ccc}
+                    a_{11} & \cdots & ^* & ^* & \cdots & ^*\\
+                    \vdots & \ddots & \vdots & \vdots & & \vdots\\
+                    0 & \cdots & a_{rr} & ^* & \cdots & ^*\\
+                    \hline
+                    0 & \cdots & 0 & 0 & \cdots & 0\\
+                    \vdots & & \vdots & \vdots & & \vdots\\
+                    0 & \cdots & 0 & 0 & \cdots & 0
+                \end{array} & \text{\huge 0}\\
                 \hline
-                0 & \cdots & 0 & 0 & \cdots & 0\\
-                \vdots & & \vdots & \vdots & & \vdots\\
-                0 & \cdots & 0 & 0 & \cdots & 0
-            \end{array} & \text{\huge 0}\\
-            \hline
-            \text{\huge 0} & \begin{array}{ccc|ccc}
-                b_{11} & \cdots & ^* & ^* & \cdots & ^*\\
-                \vdots & \ddots & \vdots & \vdots & & \vdots\\
-                0 & \cdots & b_{ss} & ^* & \cdots & ^*\\
-                \hline
-                0 & \cdots & 0 & 0 & \cdots & 0\\
-                \vdots & & \vdots & \vdots & & \vdots\\
-                0 & \cdots & 0 & 0 & \cdots & 0
-            \end{array}
-        \end{array}\right)
-    \]
-    \[
-        C' = \left(\begin{array}{cccccc|ccc}
-            a_{11} & \cdots & \cdots & \cdots & \cdots & ^* & ^* & \cdots & ^*\\
-            \vdots & \ddots & & & & \vdots & \vdots & & \vdots\\
-            \vdots & & a_{rr} & & & \vdots & \vdots & & \vdots\\
-            \vdots & & & b_{11} & & \vdots & \vdots & & \vdots\\
-            \vdots & & & & \ddots & \vdots & \vdots & & \vdots\\
-            0 & \cdots & \cdots & \cdots & \cdots & b_{ss} & ^* & \cdots & ^*\\
-            \hline
-            0 & \cdots & \cdots & \cdots & \cdots & 0 & 0 & \cdots & 0\\
-            \vdots & & & & & \vdots & \vdots & & \vdots\\
-            0 & \cdots & \cdots & \cdots & \cdots & 0 & 0 & \cdots & 0
-        \end{array}\right)
-    \]
+                \text{\huge 0} & \begin{array}{ccc|ccc}
+                    b_{11} & \cdots & ^* & ^* & \cdots & ^*\\
+                    \vdots & \ddots & \vdots & \vdots & & \vdots\\
+                    0 & \cdots & b_{ss} & ^* & \cdots & ^*\\
+                    \hline
+                    0 & \cdots & 0 & 0 & \cdots & 0\\
+                    \vdots & & \vdots & \vdots & & \vdots\\
+                    0 & \cdots & 0 & 0 & \cdots & 0
+                \end{array}
+            \end{array}\right)
+        \)
+    \end{minipage}
 
-    \vspace{0.5cm}
+    \vspace{\distance}
+
+    \begin{minipage}{\linewidth}
+        \centering
+        \(
+            C' = \left(\begin{array}{cccccc|ccc}
+                a_{11} & \cdots & \cdots & \cdots & \cdots & ^* & ^* & \cdots & ^*\\
+                \vdots & \ddots & & & & \vdots & \vdots & & \vdots\\
+                \vdots & & a_{rr} & & & \vdots & \vdots & & \vdots\\
+                \vdots & & & b_{11} & & \vdots & \vdots & & \vdots\\
+                \vdots & & & & \ddots & \vdots & \vdots & & \vdots\\
+                0 & \cdots & \cdots & \cdots & \cdots & b_{ss} & ^* & \cdots & ^*\\
+                \hline
+                0 & \cdots & \cdots & \cdots & \cdots & 0 & 0 & \cdots & 0\\
+                \vdots & & & & & \vdots & \vdots & & \vdots\\
+                0 & \cdots & \cdots & \cdots & \cdots & 0 & 0 & \cdots & 0
+            \end{array}\right)
+        \)
+    \end{minipage}
+
+    \vspace{\distance}
     
     \begin{minipage}{\linewidth}
         \centering
@@ -274,5 +286,47 @@
             \oneconn{13.5}
             \draw[dotted] (14, -0.5) -- (14, 1.5);
         \end{tikzpicture}
+
+        \vspace{\distance}
+
+        \begin{minipage}{\linewidth}
+            \centering
+            \begin{tikzpicture}[
+                semithick
+            ]
+                \draw (0, 0) rectangle node {\texttt{5.1.1.1}} (2, -1);
+                \draw (5, 0) rectangle node {\texttt{4.1.1.1}} (7, -1);
+                \draw (0, -2) rectangle node {\texttt{3.1.1.1}} (2, -3);
+                \draw (5, -2) rectangle node {\texttt{2.1.1.1}} (7, -3);
+                \draw (2.5, -4) rectangle node {\texttt{1.1.1.1}} (4.5, -5);
+                \draw[blue!100, ->] (5, -0.5) -- (2, -0.5);
+                \draw (1, -1) -- (1, -2);
+                \draw[blue!100, ->] (2, -2) -- (5, -1);
+                \draw (5, -2.5) -- (2, -2.5);
+                \draw (4.5, -4) -- (5, -3);
+                \draw[blue!100, ->] (2.5, -4) -- (2, -3);
+            \end{tikzpicture}
+        \end{minipage}
+
+        \vspace{\distance}
+        
+        \begin{minipage}{\linewidth}
+            \centering
+            \begin{tikzpicture}[
+                semithick
+            ]
+                \draw (0, 0) rectangle node {\texttt{5.1.1.1}} (2, -1);
+                \draw (5, 0) rectangle node {\texttt{4.1.1.1}} (7, -1);
+                \draw (0, -2) rectangle node {\texttt{3.1.1.1}} (2, -3);
+                \draw (5, -2) rectangle node {\texttt{2.1.1.1}} (7, -3);
+                \draw (2.5, -4) rectangle node {\texttt{1.1.1.1}} (4.5, -5);
+                \draw (5, -0.5) -- (2, -0.5);
+                \draw (1, -1) -- (1, -2);
+                \draw (2, -2) -- (5, -1);
+                \draw[blue!100, ->] (2, -2.5) -- (5, -2.5);
+                \draw[blue!100, ->] (5, -3) -- (4.5, -4);
+                \draw[blue!100, ->] (2.5, -4) -- (2, -3);
+            \end{tikzpicture}
+        \end{minipage}
     \end{minipage}
 \end{document}
