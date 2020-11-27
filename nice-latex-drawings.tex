@@ -1,5 +1,8 @@
 \documentclass[10pt,fleqn]{article}
 
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -9,7 +12,7 @@
 \usepackage{listings}
 \usepackage{mathtools}
 \usepackage{tikz}
-\usetikzlibrary{snakes}
+\usetikzlibrary{arrows, calc, positioning, snakes}
 
 \def \distance {1cm}
 
@@ -171,6 +174,8 @@
             \node at (4,-1.5) {\(\triangle(P, Q, R)\)};
         \end{tikzpicture}
     \end{minipage}
+
+    \vspace{\distance}
     
     \begin{minipage}{\linewidth}
         \centering
@@ -328,5 +333,172 @@
                 \draw[blue!100, ->] (2.5, -4) -- (2, -3);
             \end{tikzpicture}
         \end{minipage}
+    \end{minipage}
+
+    \vspace{\distance}
+
+    \begin{algorithm}
+        \caption{Swapping values}
+        \begin{algorithmic}[1]
+            \Procedure{swap}{$a, b$}
+                \State \(t \leftarrow a\)
+                \State \(a \leftarrow b\)
+                \State \(b \leftarrow t\)
+            \EndProcedure
+        \end{algorithmic}
+    \end{algorithm}
+
+    \vspace{\distance}
+
+    \begin{minipage}{\linewidth}
+        \centering
+        \begin{tikzpicture}
+            \coordinate (0) at (-0.25, -1);
+            \draw (0, 0) -- (0.5,-1) -- (-0.5,-1) -- (0, 0);
+            \node[circle, draw, inner sep=0.5mm] (1) at (-0.25, -1.5) {};
+            \draw (0) -- (1);
+            \node[circle, draw, inner sep=0.5mm] (2) at (-0.5, -1.75) {};
+            \node[circle, draw, inner sep=0.5mm] (3) at (0, -1.75) {};
+            \draw (1) -- (2);
+            \draw (1) -- (3);
+            \node at (1, -1) {\(\leadsto\)};
+            \coordinate (4) at (1.75, -1);
+            \draw (2, 0) -- (2.5,-1) -- (1.5,-1) -- (2, 0);
+            \node[circle, draw, inner sep=0.5mm] (5) at (1.75, -1.5) {};
+            \draw (4) -- (5);
+            \node[circle, draw, inner sep=0.5mm] (6) at (1.5, -1.75) {};
+            \node[circle, draw, inner sep=0.5mm] (7) at (2, -1.75) {};
+            \draw (5) -- (6);
+            \draw (5) -- (7);
+            \node[circle, draw, inner sep=0.5mm] (8) at (1.75, -2) {};
+            \node[circle, draw, inner sep=0.5mm] (9) at (2.25, -2) {};
+            \draw (7) -- (8);
+            \draw (7) -- (9);
+        \end{tikzpicture}
+    \end{minipage}
+
+    \vspace{\distance}
+
+    \begin{minipage}{\linewidth}
+        \centering
+        \begin{tikzpicture}[
+                semithick
+            ]
+            \tikzset{every node/.style={inner sep=0cm,minimum size=0.5cm}}
+
+            \def\h{1}
+            \draw (0, \h) circle (0.25) node[left=0.25cm, inner sep=0.25cm] {\(h=\) \h};
+            \draw (0.75, -0.25+\h) rectangle node (01) {1} (1.25,  \h+0.25);
+            \draw (1.75, -0.25+\h) rectangle node (02) {3} (2.25,  \h+0.25);
+            \draw (2.75, -0.25+\h) rectangle node (03) {5} (3.25,  \h+0.25);
+            \draw (3.75, -0.25+\h) rectangle node (04) {6} (4.25,  \h+0.25);
+            \draw (4.75, -0.25+\h) rectangle node (05) {8} (5.25,  \h+0.25);
+            \draw (5.75, -0.25+\h) rectangle node (06) {9} (6.25,  \h+0.25);
+            \draw (6.75, -0.25+\h) rectangle node (07) {10} (7.25, \h+0.25);
+            \draw[-|] (7.25, \h) -- (7.5, \h);
+            \path[->]
+            (0.25, \h) edge (01)
+            (01) edge (02)
+            (02) edge (03)
+            (03) edge (04)
+            (04) edge (05)
+            (05) edge (06)
+            (06) edge (07);
+
+            \def\h{2}
+            \draw (0, \h) circle (0.25) node[left=0.25cm, inner sep=0.25cm] {\(h=\) \h};
+            \draw (1.75, -0.25+\h) rectangle node (12) {3} (2.25,  \h+0.25);
+            \draw (2.75, -0.25+\h) rectangle node (13) {5} (3.25,  \h+0.25);
+            \draw (3.75, -0.25+\h) rectangle node (14) {6} (4.25,  \h+0.25);
+            \draw (4.75, -0.25+\h) rectangle node (15) {8} (5.25,  \h+0.25);
+            \draw[-|] (5.25, \h) -- (5.5, \h);
+            \path[->]
+            (0, -0.25+\h) edge (0, -0.75+\h)
+            (0.25, \h) edge (12)
+            (12) edge (13)
+            (13) edge (14)
+            (14) edge (15)
+            (12) edge (02)
+            (13) edge (03)
+            (14) edge (04)
+            (15) edge (05);
+
+            \def\h{3}
+            \draw (0, \h) circle (0.25) node[left=0.25cm, inner sep=0.25cm] {\(h=\) \h};
+            \draw (2.75, -0.25+\h) rectangle node (23) {5} (3.25,  \h+0.25);
+            \draw (3.75, -0.25+\h) rectangle node (24) {6} (4.25,  \h+0.25);
+            \draw (4.75, -0.25+\h) rectangle node (25) {8} (5.25,  \h+0.25);
+            \draw[-|] (5.25, \h) -- (5.5, \h);
+            \path[->]
+            (0, -0.25+\h) edge (0, -0.75+\h)
+            (0.25, \h) edge (23)
+            (23) edge (24)
+            (24) edge (25)
+            (23) edge (13)
+            (24) edge (14)
+            (25) edge (15);
+
+            \def\h{4}
+            \draw (0, \h) circle (0.25) node[left=0.25cm, inner sep=0.25cm] {\(h=\) \h};
+            \draw (2.75, -0.25+\h) rectangle node (33) {5} (3.25,  \h+0.25);
+            \draw (4.75, -0.25+\h) rectangle node (35) {8} (5.25,  \h+0.25);
+            \draw[-|] (5.25, \h) -- (5.5, \h);
+            \path[->]
+            (0, -0.25+\h) edge (0, -0.75+\h)
+            (0.25, \h) edge (33)
+            (33) edge (35)
+            (33) edge (23)
+            (35) edge (25);
+
+            \def\h{5}
+            \draw (0, \h) circle (0.25) node[left=0.25cm, inner sep=0.25cm] {\(h=\) \h};
+            \draw (4.75, -0.25+\h) rectangle node (45) {8} (5.25,  \h+0.25);
+            \draw[-|] (5.25, \h) -- (5.5, \h);
+            \path[->]
+            (0, -0.25+\h) edge (0, -0.75+\h)
+            (0.25, \h) edge (45)
+            (45) edge (35);
+
+            \def\h{6}
+            \draw (0, \h) circle (0.25) node[left=0.25cm, inner sep=0.25cm] {\(h=\) \h};
+            \draw (4.75, -0.25+\h) rectangle node (55) {8} (5.25,  \h+0.25);
+            \draw[-|] (5.25, \h) -- (5.5, \h);
+            \path[->]
+            (0, -0.25+\h) edge (0, -0.75+\h)
+            (0.25, \h) edge (55)
+            (55) edge (45);
+        \end{tikzpicture}
+    \end{minipage}
+
+    \vspace{\distance}
+
+    % Inspiration from the paper "Continuous K Nearest Neighbor Queries in SpatialNetwork Databases" by Mohammad R. Kolahdouzan and Cyrus Shahabi
+    \begin{minipage}{\linewidth}
+        \centering
+        \begin{tikzpicture}[
+            semithick,
+            scale=0.5,
+            every node/.style={circle, fill, inner sep=0pt, minimum size=2pt}
+        ]
+            \scriptsize 
+            \draw (-5, -3) rectangle (5, 3);
+            \path[draw] (-4, 3) -- (-1, 0) -- (-3, -3);
+            \path[draw] (-1, 0) -- (-0.5, 0) -- (1, 1.5) -- (2, 0) -- (1, -1.5) -- (-0.5, 0);
+            \draw (1, 1.5) -- (1.5, 3);
+            \draw (1, -1.5) -- (1.5, -3);
+            \draw (2, 0) -- (3, 0);
+            \draw (3, 0) -- (4, 3);
+            \draw (3, 0) -- (5, -1.5);
+            \node[label=below left:{\(s\)}] (s) at (-4, 1.5) {};
+            \node[label=above right:{\(p_1\)}] at (-1, 2) {};
+            \node[label=below left:{\(p_2\)}] at (-3, -1) {};
+            \node[label=below:{\(p_3\)}] at (-0.5, -1.5) {};
+            \node[label=above right:{\(p_4\)}] at (0.75, 0) {};
+            \node[label=below right:{\(p_5\)}] at (2.5, -1.25) {};
+            \node[label=above right:{\(p_6\)}] at (2.25, 1.5) {};
+            \node[label=above right:{\(p_7\)}] at (4.25, 1) {};
+            \node[label=above right:{\(t\)}] (t) at (2.15, -0.5) {};
+            \draw[dashed] plot[smooth, tension=1] coordinates { (s) (-0.75, 1.25) (-2.75, -0.75) (-0.5, -1.25) (0.75, -0.25) (t) };
+        \end{tikzpicture}
     \end{minipage}
 \end{document}
