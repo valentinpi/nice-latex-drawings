@@ -20,7 +20,6 @@
 \begin{document}
     \begin{minipage}{\linewidth}
         \centering
-        \vspace{\distance}
         \begin{heading}
             Waiting Queue
         \end{heading}
@@ -80,12 +79,7 @@
             \draw (3, -1) rectangle (3.5, -1.5);
             \node at (3.25, -1.25) {\(y_1\)};
         \end{tikzpicture}
-    \end{minipage}
-
-    \vspace{0.5cm}
-
-    \begin{minipage}{\linewidth}
-        \centering
+        
         \begin{tikzpicture}[
             semithick
         ]
@@ -127,9 +121,7 @@
             \yone{13.5}
         \end{tikzpicture}
     \end{minipage}
-    
-    \newcommand{\qj}{q_{ja}}
-    \newcommand{\qn}{q_{nein}}
+
     \begin{minipage}{\linewidth}
         \centering
         \vspace{\distance}
@@ -137,6 +129,8 @@
             On the Halting Problem
         \end{heading}
 
+        \newcommand{\qj}{q_{ja}}
+        \newcommand{\qn}{q_{nein}}
         \begin{tikzpicture}[
             semithick
         ]
@@ -162,7 +156,7 @@
     
     \begin{minipage}{\linewidth}
         \centering
-        \vspace{0.5cm}
+        \vspace{\distance}
         \begin{heading}
             Triangulation of a Triangle
         \end{heading}
@@ -309,69 +303,64 @@
             \oneconn{13.5}
             \draw[dotted] (14, -0.5) -- (14, 1.5);
         \end{tikzpicture}
-
-        \begin{minipage}{\linewidth}
-            \centering
-            \vspace{\distance}
-            \begin{heading}
-                Network Package Routing
-            \end{heading}
-
-            \begin{tikzpicture}[
-                semithick
-            ]
-                \draw (0, 0) rectangle node {\texttt{5.1.1.1}} (2, -1);
-                \draw (5, 0) rectangle node {\texttt{4.1.1.1}} (7, -1);
-                \draw (0, -2) rectangle node {\texttt{3.1.1.1}} (2, -3);
-                \draw (5, -2) rectangle node {\texttt{2.1.1.1}} (7, -3);
-                \draw (2.5, -4) rectangle node {\texttt{1.1.1.1}} (4.5, -5);
-                \draw[blue!100, ->] (5, -0.5) -- (2, -0.5);
-                \draw (1, -1) -- (1, -2);
-                \draw[blue!100, ->] (2, -2) -- (5, -1);
-                \draw (5, -2.5) -- (2, -2.5);
-                \draw (4.5, -4) -- (5, -3);
-                \draw[blue!100, ->] (2.5, -4) -- (2, -3);
-            \end{tikzpicture}
-        \end{minipage}
-        
-        \begin{minipage}{\linewidth}
-            \centering
-            \begin{tikzpicture}[
-                semithick
-            ]
-                \draw (0, 0) rectangle node {\texttt{5.1.1.1}} (2, -1);
-                \draw (5, 0) rectangle node {\texttt{4.1.1.1}} (7, -1);
-                \draw (0, -2) rectangle node {\texttt{3.1.1.1}} (2, -3);
-                \draw (5, -2) rectangle node {\texttt{2.1.1.1}} (7, -3);
-                \draw (2.5, -4) rectangle node {\texttt{1.1.1.1}} (4.5, -5);
-                \draw (5, -0.5) -- (2, -0.5);
-                \draw (1, -1) -- (1, -2);
-                \draw (2, -2) -- (5, -1);
-                \draw[blue!100, ->] (2, -2.5) -- (5, -2.5);
-                \draw[blue!100, ->] (5, -3) -- (4.5, -4);
-                \draw[blue!100, ->] (2.5, -4) -- (2, -3);
-            \end{tikzpicture}
-        \end{minipage}
     \end{minipage}
-
+    
     \begin{minipage}{\linewidth}
         \centering
         \vspace{\distance}
         \begin{heading}
-            Swapping Algorithm
+            Network Package Routing
         \end{heading}
+
+        \begin{tikzpicture}[
+            semithick
+        ]
+            \draw (0, 0) rectangle node {\texttt{5.1.1.1}} (2, -1);
+            \draw (5, 0) rectangle node {\texttt{4.1.1.1}} (7, -1);
+            \draw (0, -2) rectangle node {\texttt{3.1.1.1}} (2, -3);
+            \draw (5, -2) rectangle node {\texttt{2.1.1.1}} (7, -3);
+            \draw (2.5, -4) rectangle node {\texttt{1.1.1.1}} (4.5, -5);
+            \draw[blue!100, ->] (5, -0.5) -- (2, -0.5);
+            \draw (1, -1) -- (1, -2);
+            \draw[blue!100, ->] (2, -2) -- (5, -1);
+            \draw (5, -2.5) -- (2, -2.5);
+            \draw (4.5, -4) -- (5, -3);
+            \draw[blue!100, ->] (2.5, -4) -- (2, -3);
+        \end{tikzpicture}
+
+        \begin{tikzpicture}[
+            semithick
+        ]
+            \draw (0, 0) rectangle node {\texttt{5.1.1.1}} (2, -1);
+            \draw (5, 0) rectangle node {\texttt{4.1.1.1}} (7, -1);
+            \draw (0, -2) rectangle node {\texttt{3.1.1.1}} (2, -3);
+            \draw (5, -2) rectangle node {\texttt{2.1.1.1}} (7, -3);
+            \draw (2.5, -4) rectangle node {\texttt{1.1.1.1}} (4.5, -5);
+            \draw (5, -0.5) -- (2, -0.5);
+            \draw (1, -1) -- (1, -2);
+            \draw (2, -2) -- (5, -1);
+            \draw[blue!100, ->] (2, -2.5) -- (5, -2.5);
+            \draw[blue!100, ->] (5, -3) -- (4.5, -4);
+            \draw[blue!100, ->] (2.5, -4) -- (2, -3);
+        \end{tikzpicture}
     \end{minipage}
-    
-    \begin{algorithm}
-        \caption{Swapping values}
-        \begin{algorithmic}[1]
-            \Procedure{swap}{$a, b$}
-                \State \(t \leftarrow a\)
-                \State \(a \leftarrow b\)
-                \State \(b \leftarrow t\)
-            \EndProcedure
-        \end{algorithmic}
-    \end{algorithm}
+
+    {
+        \vspace{\distance}
+        \begin{heading}
+            Swapping Algorithm Description
+        \end{heading}
+        \begin{algorithm}
+            \caption{Swapping values}
+            \begin{algorithmic}[1]
+                \Procedure{swap}{$a, b$}
+                    \State \(t \leftarrow a\)
+                    \State \(a \leftarrow b\)
+                    \State \(b \leftarrow t\)
+                \EndProcedure
+            \end{algorithmic}
+        \end{algorithm}
+    }
 
     \begin{minipage}{\linewidth}
         \centering
@@ -535,7 +524,7 @@
             \node[label=above right:{\(p_6\)}] at (2.25, 1.5) {};
             \node[label=above right:{\(p_7\)}] at (4.25, 1) {};
             \node[label=above right:{\(t\)}] (t) at (2.15, -0.5) {};
-            \draw[dashed] plot[smooth, tension=1] coordinates { (s) (-0.75, 1.25) (-2.75, -0.75) (-0.5, -1.25) (0.75, -0.25) (t) };
+            \draw[dashed] plot[smooth, tension=1] coordinates { (s) (-1.25, 1.75) (-2.75, -0.75) (-0.5, -1.25) (0.75, -0.25) (t) };
         \end{tikzpicture}
     \end{minipage}
 \end{document}
