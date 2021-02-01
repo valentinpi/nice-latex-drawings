@@ -527,4 +527,57 @@
             \draw[dashed] plot[smooth, tension=1] coordinates { (s) (-1.25, 1.75) (-2.75, -0.75) (-0.5, -1.25) (0.75, -0.25) (t) };
         \end{tikzpicture}
     \end{minipage}
+
+    \begin{minipage}{\linewidth}
+        \centering
+        \vspace{\distance}
+        \begin{heading}
+            Rotation in der Ebene
+        \end{heading}
+
+        \begin{center}
+            \(
+                \begin{pmatrix}
+                    x\\
+                    y
+                \end{pmatrix} = \begin{pmatrix}
+                    x\\
+                    0
+                \end{pmatrix} + \begin{pmatrix}
+                    0\\
+                    y
+                \end{pmatrix} \mapsto \begin{pmatrix}
+                    \cos(\psi) \cdot x - \sin(\psi) \cdot y\\
+                    \sin(\psi) \cdot x + \cos(\psi) \cdot y
+                \end{pmatrix}
+            \)
+        \end{center}
+
+        \begin{tikzpicture}[
+            >=stealth,
+            semithick
+        ]
+            % Axis
+            \draw[->] (0, 0) -- (0, 5);
+            \draw[->] (-5, 0) -- (5, 0);
+
+            \draw[->] (0, 0) -- (2.83, 0) node[below, pos=0.5] {\(\cos{\phi}\)};
+            \draw[->] (0, 0) -- (0, 2.83) node[right, pos=0.5, rotate=270, anchor=south] {\(\cos{\phi}\)};
+            \draw (2.83, 2.83) -- (2.83, 0) node[right, pos=0.5, rotate=270, anchor=south] {\(\sin{\phi}\)};
+            \draw (-2.83, 2.83) -- (0, 2.83) node[above, pos=0.5] {\(-\sin{\phi}\)};
+            % Calculations result from rotating the vectors for
+            % the angle psi = 45 degrees and then adjusting the magnitude
+            % for the text of the angle variable for instance
+            \draw[->] (0, 0) -- (2.83, 2.83) node[above left, pos=0.5] {\(1\)};
+            \draw[->] (0, 0) -- (-2.83, 2.83) node[below left, pos=0.5] {\(1\)};
+            \draw (1.25, 0) arc (0:45:1.25);
+            \node at (0.70, 0.29) {\(\psi\)};
+            \draw (0, 1.25) arc (90:135:1.25);
+            \draw[->] (4, 0) arc (0:45:4);
+            \draw[->] (0, 4) arc (90:135:4);
+            \node at (-0.29, 0.70) {\(\psi\)};
+            \node[below] at (4, 0) {\((1, 0)\)};
+            \node[right] at (0, 4) {\((0, 1)\)};
+        \end{tikzpicture}
+    \end{minipage}
 \end{document}
