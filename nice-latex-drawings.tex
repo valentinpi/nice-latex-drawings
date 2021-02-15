@@ -561,10 +561,12 @@
             \draw[->] (0, 0) -- (0, 5);
             \draw[->] (-5, 0) -- (5, 0);
 
-            \draw[->] (0, 0) -- (2.83, 0) node[below, pos=0.5] {\(\cos{\phi}\)};
-            \draw[->] (0, 0) -- (0, 2.83) node[right, pos=0.5, rotate=270, anchor=south] {\(\cos{\phi}\)};
-            \draw (2.83, 2.83) -- (2.83, 0) node[right, pos=0.5, rotate=270, anchor=south] {\(\sin{\phi}\)};
-            \draw (-2.83, 2.83) -- (0, 2.83) node[above, pos=0.5] {\(-\sin{\phi}\)};
+            \draw[->] (0, 0) -- (4, 0);
+            \draw[->] (0, 0) -- (0, 4);
+            \draw (0, 0) -- (2.83, 0) node[below, pos=0.5] {\(\cos{\psi}\)};
+            \draw (0, 0) -- (0, 2.83) node[right, pos=0.5, rotate=270, anchor=south] {\(\cos{\psi}\)};
+            \draw (2.83, 2.83) -- (2.83, 0) node[right, pos=0.5, rotate=270, anchor=south] {\(\sin{\psi}\)};
+            \draw (-2.83, 2.83) -- (0, 2.83) node[above, pos=0.5] {\(-\sin{\psi}\)};
             % Calculations result from rotating the vectors for
             % the angle psi = 45 degrees and then adjusting the magnitude
             % for the text of the angle variable for instance
@@ -578,6 +580,113 @@
             \node at (-0.29, 0.70) {\(\psi\)};
             \node[below] at (4, 0) {\((1, 0)\)};
             \node[right] at (0, 4) {\((0, 1)\)};
+        \end{tikzpicture}
+    \end{minipage}
+    \newpage
+    \begin{minipage}{\linewidth}
+        \centering
+        \vspace{\distance}
+        \begin{heading}
+            Three-dimensional Borel Sets
+        \end{heading}
+        \vspace{0.25cm}
+    \end{minipage}
+    \begin{minipage}{0.5\linewidth}
+        \centering
+        \begin{tikzpicture}[
+            >=stealth,
+            scale=0.75,
+            semithick
+        ]
+            % Line must be of length 3 => sqrt(2) x = 3 => x = 2.12
+            \draw[->] (-1.06, -1.06) -- (-2.12, -2.12);
+            \draw[->] (2.5, 0) -- (6, 0);
+            \draw[->] (0, 2.5) -- (0, 6);
+            \fill[gray!10] (0, 0) -- (2.5, 0) arc (0:90:2.5) -- cycle;
+            % Bezier Curves https://www.tug.org/pracjourn/2007-1/mertz/mertz.pdf p. 12
+            \fill[gray!10] (0, 0) -- (0, 2.5) .. controls (-1.06, 1.44) and (-1.06, 1.44) .. (-1.06, -1.06) -- cycle;
+            \fill[gray!10] (0, 0) -- (2.5, 0) .. controls (1.44, -1.06) and (1.44, -1.06) .. (-1.06, -1.06) -- cycle;
+            \draw (2.5, 0) arc (0:90:2.5);
+            \draw (0, 2.5) .. controls (-1.06, 1.44) and (-1.06, -0.06) .. (-1.06, -1.06);
+            \draw (2.5, 0) .. controls (1.44, -1.06) and (-0.06, -1.06) .. (-1.06, -1.06);
+            \draw[dashed] (0, 0) -- (-1.06, -1.06);
+            \draw[dashed] (0, 0) -- (2.5, 0);
+            \draw[dashed] (0, 0) -- (0, 2.5);
+            \draw (-1.77, -1.77) -- (3.23, -1.77) -- (3.23, 3.23) -- (-1.77, 3.23) -- cycle;
+            \draw (3.23, -1.77) -- (5, 0) -- (5, 5) -- (3.23, 3.23) -- cycle;
+            \draw (-1.77, 3.23) -- (3.23, 3.23) -- (5, 5) -- (0, 5) -- cycle;
+            \node at (0.72, 0.72) {\(A_1\)};
+            \node at (3, 4) {\([0,2]^3\)};
+        \end{tikzpicture}
+    \end{minipage}
+    \begin{minipage}{0.5\linewidth}
+        \centering
+        \begin{tikzpicture}[
+            >=stealth,
+            scale=0.75,
+            semithick
+        ]
+            \draw[->] (-1.06, -1.06) -- (-2.12, -2.12);
+            \draw[->] (2.5, 0) -- (6, 0);
+            \draw[->] (0, 2.5) -- (0, 6);
+            \fill[gray!10] (0, 0) -- (-1.06, -1.06) -- (1.44, -1.06) -- (2.5, 0) -- cycle;
+            \fill[gray!10] (0, 0) -- (-1.06, -1.06) -- (-1.06, 1.44) -- (0, 2.5) -- cycle;
+            \fill[gray!10] (0, 0) -- (2.5, 0) -- (2.5, 2.5) -- (0, 2.5) -- cycle;
+            \draw[dashed] (0, 0) -- (-1.06, -1.06);
+            \draw[dashed] (0, 0) -- (2.5, 0);
+            \draw[dashed] (0, 0) -- (0, 2.5);
+            \draw (-1.06, -1.06) -- (1.44, -1.06) -- (1.44, 1.44) -- (-1.06, 1.44) -- cycle;
+            \draw (-1.06, 1.44) -- (0, 2.5) -- (2.5, 2.5) -- (1.44, 1.44) -- cycle;
+            \draw (1.44, -1.06) -- (2.5, 0) -- (2.5, 2.5) -- (1.44, 1.44) -- cycle;
+            \draw (-1.77, -1.77) -- (3.23, -1.77) -- (3.23, 3.23) -- (-1.77, 3.23) -- cycle;
+            \draw (3.23, -1.77) -- (5, 0) -- (5, 5) -- (3.23, 3.23) -- cycle;
+            \draw (-1.77, 3.23) -- (3.23, 3.23) -- (5, 5) -- (0, 5) -- cycle;
+            \node at (0.72, 0.72) {\(\overline{A_2}\)};
+            \node at (3, 4) {\([0,2]^3\)};
+        \end{tikzpicture}
+    \end{minipage}
+    \begin{minipage}{0.5\linewidth}
+        \centering
+        \begin{tikzpicture}[
+            >=stealth,
+            scale=0.75,
+            semithick
+        ]
+            \draw[->] (-1.06, -1.06) -- (-2.12, -2.12);
+            \draw[->] (2.5, 0) -- (6, 0);
+            \draw[->] (0, 2.5) -- (0, 6);
+            \fill[gray!10] (-1.06, -1.06) -- (2.5, 0) -- (0, 2.5) -- cycle;
+            \draw[dashed] (0, 0) -- (-1.06, -1.06);
+            \draw[dashed] (0, 0) -- (2.5, 0);
+            \draw[dashed] (0, 0) -- (0, 2.5);
+            \draw (-1.06, -1.06) -- (2.5, 0) -- (0, 2.5) -- cycle;
+            \draw (-1.77, -1.77) -- (3.23, -1.77) -- (3.23, 3.23) -- (-1.77, 3.23) -- cycle;
+            \draw (3.23, -1.77) -- (5, 0) -- (5, 5) -- (3.23, 3.23) -- cycle;
+            \draw (-1.77, 3.23) -- (3.23, 3.23) -- (5, 5) -- (0, 5) -- cycle;
+            \node at (0.72, 0.72) {\(A_3\)};
+            \node at (3, 4) {\([0,2]^3\)};
+        \end{tikzpicture}
+    \end{minipage}
+    \begin{minipage}{0.5\linewidth}
+        \centering
+        \begin{tikzpicture}[
+            >=stealth,
+            scale=0.75,
+            semithick
+        ]
+            \draw[->] (-1.77, -1.77) -- (-2.12, -2.12);
+            \draw[->] (5, 0) -- (6, 0);
+            \draw[->] (0, 5) -- (0, 6);
+            \fill[gray!10] (-1.77, -1.77) -- (5, 0) -- (0, 5) -- cycle;
+            \draw[dashed] (0, 0) -- (-1.77, -1.77);
+            \draw[dashed] (0, 0) -- (5, 0);
+            \draw[dashed] (0, 0) -- (0, 5);
+            \draw (-1.77, -1.77) -- (5, 0) -- (0, 5) -- cycle;
+            \draw (-1.77, -1.77) -- (3.23, -1.77) -- (3.23, 3.23) -- (-1.77, 3.23) -- cycle;
+            \draw (3.23, -1.77) -- (5, 0) -- (5, 5) -- (3.23, 3.23) -- cycle;
+            \draw (-1.77, 3.23) -- (3.23, 3.23) -- (5, 5) -- (0, 5) -- cycle;
+            \node at (1.25, 1.25) {\(A_4\)};
+            \node at (3, 4) {\([0,2]^3\)};
         \end{tikzpicture}
     \end{minipage}
 \end{document}
